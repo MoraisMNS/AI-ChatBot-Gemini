@@ -20,9 +20,15 @@ chatbot.start_conversation()
 
 app = FastAPI()
 
+allowed_origins = [
+    "http://localhost",
+    "http://localhost:*"
+]
+
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Adjust this to your needs
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
